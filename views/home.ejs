@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inventory Sheet</title>
+
+    <style type="text/css" media="screen">
+        body {
+            text-decoration-color: white;
+        }
+    </style>
+</head>
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <center>Inventory Dashboard.</center>
+    <div align="right">
+        <form name="mainForm" action="http://localhost:9090/manager/ordered" method="post">
+            <select name="product">
+                <option value="bearing">Bearing</option>
+                <option value="belts">Belt</option>
+                <option value="commcard">Commcard</option>
+                <option value="pushbutton">PushButton</option>
+            </select>
+
+            <br />
+
+            <input type="submit" title="Submit" />
+        </form>
+    </div>
+
+
+
+
+    <table table style="width:100%">
+      
+            <thead>
+                <tr>
+                    <th>Customer Id</th>
+                    <th>Ticket Id</th>
+                    <th>Product</th>
+                    <th>Quantity Ordered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < availableItem.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= availableItem[i].customerID %>
+                    </td>
+                    <td>
+                        <%= availableItem[i].ticket_id %>
+                    </td>
+                    <td>
+                        <%= availableItem[i].pid %>
+                    </td>
+                    <td>
+                        <%= availableItem[i].quan %>
+                    </td>
+                </tr>
+
+                <% } %>
+            </tbody>
+    </table>
+</body>
+
+</html>
